@@ -1,8 +1,8 @@
-const axios = require("axios");
+import axios from 'axios';
 
 class IdeasApi {
   constructor() {
-    this._apiUrl = "http://localhost:5003/api/ideas";
+    this._apiUrl = 'http://localhost:5003/api/ideas';
   }
 
   getIdeas() {
@@ -18,9 +18,9 @@ class IdeasApi {
   }
 
   deleteIdea(id) {
-    const username = localStorage.getItem("username")
-      ? localStorage.getItem("username")
-      : "";
+    const username = localStorage.getItem('username')
+      ? localStorage.getItem('username')
+      : '';
     return axios.delete(`${this._apiUrl}/${id}`, {
       data: {
         username,
@@ -29,4 +29,4 @@ class IdeasApi {
   }
 }
 
-module.exports = new IdeasApi();
+export default new IdeasApi();
